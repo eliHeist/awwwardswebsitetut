@@ -2,7 +2,6 @@
 	import { useGsap } from "$lib/utils/useGsap";
 	import { useMediaQuery } from "$lib/utils/useMediaQuery";
     import { gsap } from "gsap";
-	import { onMount } from "svelte";
 
     const isMobile = useMediaQuery("(max-width: 768px)");
     let is_mobile: boolean = $state(true);
