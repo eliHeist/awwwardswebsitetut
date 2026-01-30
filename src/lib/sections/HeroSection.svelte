@@ -28,8 +28,6 @@
                 start: "1% top",
                 end: "bottom top",
                 scrub: true,
-                // pin: true,
-                markers: true
             }
         });
         heroTL.to(".hero-container", {
