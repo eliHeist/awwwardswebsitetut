@@ -1,27 +1,33 @@
 <script lang="ts">
 	import { flavorlists } from "$lib/constants";
 	import { useGsap } from "$lib/utils/useGsap";
+	import { useMediaQuery } from "$lib/utils/useMediaQuery";
     import { gsap } from "gsap";
 
     let sliderRef: HTMLDivElement;
 
+    const isTablet = useMediaQuery("(max-width: 1024px)");
+
     useGsap(()=> {
         const scrollAmount = sliderRef.scrollWidth - window.innerWidth;
-        
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".flavor-section",
-                start: "2% top",
-                end: `+=${scrollAmount + 1500}px`,
-                scrub: true,
-                pin: true,
-            }
-        });
 
-        tl.to(".flavor-section", {
-            x: `-${scrollAmount + 1500}px`,
-            ease: "power1.inOut",
-        });
+        if (!isTablet) {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".flavor-section",
+                    start: "2% top",
+                    end: `+=${scrollAmount + 1500}px`,
+                    scrub: true,
+                    pin: true,
+                }
+            });
+    
+            tl.to(".flavor-section", {
+                x: `-${scrollAmount + 1500}px`,
+                ease: "power1.inOut",
+            });
+        }
+        
 
         const titleTimeline = gsap.timeline({
             scrollTrigger: {
