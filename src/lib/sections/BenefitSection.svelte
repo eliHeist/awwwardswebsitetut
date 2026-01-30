@@ -2,6 +2,7 @@
 	import ClipPathTitle from "$lib/components/ClipPathTitle.svelte";
 	import { useGsap } from "$lib/utils/useGsap";
     import { gsap } from "gsap";
+	import VideoPinSection from "./VideoPinSection.svelte";
 
     useGsap(() => {
         const revealTl = gsap.timeline({
@@ -80,6 +81,9 @@
         </div>
     </div>
 
+    <div class="relative overlay-box">
+        <VideoPinSection />
+    </div>
 </section>
 
 <style>
