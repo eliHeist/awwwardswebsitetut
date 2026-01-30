@@ -4,11 +4,11 @@
     import { gsap } from "gsap";
 
     const isMobile = useMediaQuery("(max-width: 768px)");
-    let is_mobile: boolean = $state(true);
+    let is_mobile: boolean = $state(false);
     
     useGsap(() => {
         if (!$isMobile) {
-            is_mobile = false;
+            is_mobile = true;
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".vd-pin-section",

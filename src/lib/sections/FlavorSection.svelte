@@ -1,8 +1,6 @@
 <script lang="ts">
 	import FlavorSlider from "$lib/components/FlavorSlider.svelte";
 	import FlavorTitle from "$lib/components/FlavorTitle.svelte";
-
-    
 </script>
 
 <section class="flavor-section">

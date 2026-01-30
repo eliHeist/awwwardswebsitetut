@@ -11,7 +11,7 @@
     useGsap(()=> {
         const scrollAmount = sliderRef.scrollWidth - window.innerWidth;
 
-        if (!isTablet) {
+        if (!$isTablet) {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".flavor-section",
