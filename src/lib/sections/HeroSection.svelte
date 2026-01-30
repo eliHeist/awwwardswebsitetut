@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { onMount } from "svelte";
     import { gsap } from "gsap";
     import { SplitText } from "gsap/all";
+	import { useGsap } from "$lib/utils/useGsap";
 
-    onMount(() => {
+    useGsap(() => {
         const titleSplit = SplitText.create(".hero-title", { type: "chars" });
 
         const tl = gsap.timeline({delay: 1});
@@ -25,9 +25,11 @@
         const heroTL = gsap.timeline({
             scrollTrigger: {
                 trigger: ".hero-container",
-                start: "1% top",
+                start: "10% top",
                 end: "bottom top",
                 scrub: true,
+                // pin: true,
+                // markers: true
             }
         });
         heroTL.to(".hero-container", {
