@@ -4,12 +4,16 @@
 	import NavBar from '$lib/components/NavBar.svelte';
 
     import { gsap } from "gsap";
-    import { SplitText } from "gsap/all";
-    import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+    import { ScrollSmoother } from "gsap/all";
 	import { onMount } from 'svelte';
 
     onMount(() => {
-        gsap.registerPlugin(SplitText, ScrollTrigger);
+        gsap.registerPlugin(ScrollSmoother);
+
+        ScrollSmoother.create({
+            smooth: 2,
+            effects: true,
+        });
     });
 
 	let { children } = $props();
@@ -19,5 +23,9 @@
 
 <main>
     <NavBar />
-    {@render children()}
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            {@render children()}
+        </div>
+    </div>
 </main>
