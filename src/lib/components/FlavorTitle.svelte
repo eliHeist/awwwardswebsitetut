@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { useGsap } from '$lib/utils/useGsap';
 	import gsap from 'gsap';
-	import { SplitText } from 'gsap/all';
+	import SplitText from 'gsap/dist/SplitText';
 
 	useGsap(() => {
 		const firstTextSplit = SplitText.create('.first-text-split h1', { type: 'chars' });

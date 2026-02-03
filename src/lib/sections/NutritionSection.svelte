@@ -3,7 +3,7 @@
 	import { useGsap } from '$lib/utils/useGsap';
 	import { useMediaQuery } from '$lib/utils/useMediaQuery';
 	import { onMount } from 'svelte';
-	import { SplitText } from 'gsap/SplitText';
+	import SplitText from 'gsap/dist/SplitText';
 	import gsap from 'gsap';
 
 	const isMobile = useMediaQuery('(max-width: 768px)');

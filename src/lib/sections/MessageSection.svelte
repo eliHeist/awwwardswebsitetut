@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { gsap } from 'gsap';
-    import { SplitText } from 'gsap/all';
+    import gsap from 'gsap';
+    import SplitText from 'gsap/dist/SplitText';
 	import { useGsap } from '$lib/utils/useGsap';
 
     useGsap(() => {

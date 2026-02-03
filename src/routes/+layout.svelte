@@ -4,7 +4,7 @@
 	import NavBar from '$lib/components/NavBar.svelte';
 
     import gsap from "gsap";
-    import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
+    import ScrollSmoother from "gsap/dist/ScrollSmoother";
 	import { onMount } from 'svelte';
 
     onMount(() => {
