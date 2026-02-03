@@ -1,6 +1,6 @@
 // useGsap.ts
 import { onMount, onDestroy } from "svelte";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { SplitText } from "gsap/dist/SplitText";
 

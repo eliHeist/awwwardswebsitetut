@@ -3,7 +3,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import NavBar from '$lib/components/NavBar.svelte';
 
-    import { gsap } from "gsap";
+    import gsap from "gsap";
     import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
 	import { onMount } from 'svelte';
 
