@@ -1,20 +1,34 @@
 // useGsap.ts
 import { onMount, onDestroy } from "svelte";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import SplitText from "gsap/dist/SplitText";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+let gsapPromise: Promise<any> | null = null;
 
-/**
- * A Svelte-friendly GSAP helper that runs your setup on mount,
- * auto-refreshes ScrollTrigger, and cleans up on destroy.
- */
+async function loadGsap() {
+    if (!gsapPromise) {
+        gsapPromise = (async () => {
+            const gsapModule = await import("gsap");
+            const ScrollTriggerModule = await import("gsap/dist/ScrollTrigger");
+            const SplitTextModule = await import("gsap/dist/SplitText");
+            
+            const gsap = gsapModule.default;
+            const ScrollTrigger = ScrollTriggerModule.default;
+            const SplitText = SplitTextModule.default;
+            
+            gsap.registerPlugin(ScrollTrigger, SplitText);
+            
+            return { gsap, ScrollTrigger, SplitText };
+        })();
+    }
+    return gsapPromise;
+}
+
 export function useGsap(setup: () => (() => void) | void) {
     let cleanup: (() => void) | void;
 
-    onMount(() => {
+    onMount(async () => {
+        await loadGsap(); // Just ensure GSAP is loaded
         cleanup = setup();
+        const { ScrollTrigger } = await loadGsap();
         ScrollTrigger.refresh();
     });
 
